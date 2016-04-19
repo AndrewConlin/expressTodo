@@ -1,7 +1,30 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+// var mysql      = require('mysql');
+
 var app = express();
+
+//mysql connection
+// var con = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'guest',
+//   password : 'guest',
+//   database : 'todoDB'
+// });
+//
+// exports.getConnection = function(){
+//
+// };
+// con.connect(function(err){
+//   if(err){
+//     console.log('Error connecting to todoDb');
+//     return;
+//   }
+//   console.log('On Startup: MySQL Connection established');
+// });
+
+// con.query('INSERT INTO todos (content) VALUES ("test insert 2")');
 
 //set path to views folder
 app.set('views', path.join(__dirname, 'app_server', 'views'));

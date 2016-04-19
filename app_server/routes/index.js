@@ -9,9 +9,13 @@ var ctrlMain = require('../controllers/main');
 /* GET home page. */
 router.get('/', ctrlMain.index);
 
-router.get('/todo', ctrlMain.todo);
-
 /*Add a new todo item*/
 router.post('/create', ctrlMain.create);
+
+/*Delete an existing todo item*/
+router.post('/delete', ctrlMain.delete);
+
+/*edit an existing todo item*/
+router.post('/edit', ctrlMain.edit);
 
 module.exports = router;

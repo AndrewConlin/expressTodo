@@ -16,3 +16,8 @@ in app.js:
   - set handlebars to be your default templating engine.
   - write custom 404/500 routes
   - use app.listen to set up port 3000
+
+* Create hello world with node
+* Create hello world with express
+* Discuss pattern with app server folder for MVC organization
+* Popular modules

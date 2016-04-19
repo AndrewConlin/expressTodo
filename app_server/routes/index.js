@@ -13,7 +13,7 @@ router.get('/', ctrlMain.index);
 router.post('/create', ctrlMain.create);
 
 /*Delete an existing todo item*/
-router.post('/delete', ctrlMain.delete);
+router.get('/delete/:id', ctrlMain.delete);
 
 /*edit an existing todo item*/
 router.post('/edit', ctrlMain.edit);

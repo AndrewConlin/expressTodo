@@ -8,7 +8,6 @@ module.exports.index = function(req, res){
         res.render('index', { title : 'Express Todo App', todos: rows });
     });
   });
-  // res.render('index', { title : 'Express Todo App' });
 };
 
 module.exports.create = function(req, res){
@@ -20,7 +19,12 @@ module.exports.create = function(req, res){
 };
 
 module.exports.delete = function(req, res){
+  console.log("in delete");
   //delete code from by id
+  var id = req.params.id;
+  mysql.getConnection(function(err, con){
+    con.query('DELETE from todos WHERE id =' + id);
+  });
   res.redirect('/');
 };
 

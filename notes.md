@@ -1,3 +1,10 @@
+Hello world node, hello world express, ejs/handlebars
+pattern, mysql
+Rob
+Rob
+todo
+
+
 ## Hello world setup
 create project folder
 enter folder, and run an npm init (creates the package.json)

@@ -6,6 +6,6 @@
 
 <ul class="todo_list">
   {{#each todos}}
-    <li>{{this.content}}</li>
+    <li>{{this.content}} <a href="/delete/{{this.id}}" title="Delete">Delete</a> </li>
   {{/each}}
 </ul>

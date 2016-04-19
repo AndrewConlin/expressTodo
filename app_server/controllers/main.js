@@ -1,7 +1,7 @@
 var mysql = require('../models/mysql.js');
 
 module.exports.index = function(req, res){
-  // var list = [];
+  //code to display all current todos in db
   mysql.getConnection(function(err, con){
     list = con.query('Select * from todos', function(err, rows){
         if(err) throw err;
@@ -11,6 +11,7 @@ module.exports.index = function(req, res){
 };
 
 module.exports.create = function(req, res){
+  //code to create a new todo
   var content = req.body.content;
   mysql.getConnection(function(err, con){
     con.query('INSERT INTO todos (content) VALUES ("' + content + '")');
@@ -19,7 +20,6 @@ module.exports.create = function(req, res){
 };
 
 module.exports.delete = function(req, res){
-  console.log("in delete");
   //delete code from by id
   var id = req.params.id;
   mysql.getConnection(function(err, con){
@@ -29,5 +29,26 @@ module.exports.delete = function(req, res){
 };
 
 module.exports.edit = function(req, res){
+  //code to edit an existing todo
+  mysql.getConnection(function(err, con){
+    list = con.query('Select * from todos', function(err, rows){
+        if(err) throw err;
+        res.render( 'edit', {
+              title   : 'Express Todo App',
+              todos   : rows,
+              current : req.params.id
+        });
+    });
+  });
+};
+
+module.exports.update = function(req, res){
+  //update object in db that was edited
+  var id = req.params.id;
+  var content = req.body.content;
+
+  mysql.getConnection(function(err, con){
+    con.query('UPDATE todos SET content="' + content + '" WHERE id=' + id);
+  });
   res.redirect('/');
 };

@@ -13,7 +13,6 @@ exports.getConnection = function(callback){
       console.log('Error connecting to todoDb');
       return callback(err);
     }
-    console.log('On Startup: MySQL Connection established');
     callback(err, con);
   });
 };

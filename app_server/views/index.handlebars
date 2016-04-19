@@ -1,11 +1,15 @@
-<h1>{{title}}</h1>
-<!-- <a href="/todo">View todos</a> old link to list of todos-->
+<h4>{{title}}</h4>
+<hr>
 <form action = "/create" method ="post">
-  New Todo: <input type = "text" name = "content"/> <input type = "submit" value = "Add todo"/>
+  <p>New Todo: <input type = "text" name = "content"/> <input class = "button" type = "submit" value = "Add todo"/> </p>
 </form>
 
+<h2>Todos:</h2>
 <ul class="todo_list">
   {{#each todos}}
-    <li>{{this.content}} <a href="/delete/{{this.id}}" title="Delete">Delete</a> </li>
+    <li>
+      <a class = "item" href="/edit/{{this.id}}" title="Update">{{this.content}}</a>
+      <a class = "delete" href="/delete/{{this.id}}" title="Delete">Delete</a>
+    </li>
   {{/each}}
 </ul>

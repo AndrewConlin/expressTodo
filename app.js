@@ -29,6 +29,8 @@ var app = express();
 //set path to views folder
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
+app.use(express.static(__dirname + '/public'));
+
 //set handlebars as default templeting agent
 var handlebars = require('express-handlebars').create({defaultLayout:'../../app_server/views/layouts/main'});
 app.engine('handlebars', handlebars.engine);
@@ -38,6 +40,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', require('./app_server/routes/index'));
+
 
 //custom 404
 app.use(function(req, res){

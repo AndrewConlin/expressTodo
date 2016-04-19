@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+
+<form action = "/create" method ="post">
+  New Todo: <input type = "text" name = "content"/> <input type = "submit" value = "Add todo"/>
+</form>
+
+<ul class="todo_list">
+  {{#each todos}}
+    <li>
+      {{#if this.id == current}}
+        <form action = "/update/{this.id}" method ="post">
+          <input type ="text" value = "{{this.content}}"/>
+        </form>
+      {{/if}}
+      {{#else}}
+        <a href="/edit/{{this.id}}" title="Update">{{this.content}}</a>
+      {{/else}}
+        <a href="/delete/{{this.id}}" title="Delete">Delete</a>
+    </li>
+  {{/each}}
+</ul>

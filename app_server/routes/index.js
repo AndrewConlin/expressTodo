@@ -2,10 +2,6 @@ var express = require('express');
 var router = express.Router();
 var ctrlMain = require('../controllers/main');
 
-// var homepageController = function(req,res){
-//   res.render('index', {title:'Express'});
-// };
-
 /* GET home page. */
 router.get('/', ctrlMain.index);
 
@@ -16,6 +12,9 @@ router.post('/create', ctrlMain.create);
 router.get('/delete/:id', ctrlMain.delete);
 
 /*edit an existing todo item*/
-router.post('/edit', ctrlMain.edit);
+router.get('/edit/:id', ctrlMain.edit);
+
+/*update an existing todo item*/
+router.post('/update/:id', ctrlMain.update);
 
 module.exports = router;
